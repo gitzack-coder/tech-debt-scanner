@@ -1,0 +1,84 @@
+name: 技术债务扫描
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+  schedule:
+    # 每周一早上 9 点运行
+    - cron: '0 9 * * 1'
+
+jobs:
+  scan:
+    name: 扫描技术债务
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 下载技术债务扫描器
+        run: |
+          # 下载独立版扫描器
+          curl -o tech-debt-scanner.mjs https://raw.githubusercontent.com/your-username/tech-debt-scanner/main/tech-debt-scanner-standalone.mjs
+          chmod +x tech-debt-scanner.mjs
+
+      - name: 运行技术债务扫描
+        run: |
+          node tech-debt-scanner.mjs . > scan-output.txt 2>&1
+          cat scan-output.txt
+
+      - name: 生成 Markdown 报告
+        run: |
+          node tech-debt-scanner.mjs .
+
+      - name: 上传扫描报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 技术债务扫描报告
+          path: TECHNICAL_DEBT_REPORT.md
+          retention-days: 30
+
+      - name: 检查高风险模块
+        run: |
+          # 检查是否有 P0 高风险模块
+          if grep -q "🚨 高风险模块（P0） | [1-9]" TECHNICAL_DEBT_REPORT.md; then
+            echo "::error::发现高风险模块（P0 优先级），请立即处理"
+            echo "::group::高风险模块详情"
+            cat TECHNICAL_DEBT_REPORT.md | grep -A 20 "## 三、高风险模块详情"
+            echo "::endgroup::"
+            exit 1
+          fi
+
+      - name: 创建 Issue（发现高风险模块）
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('TECHNICAL_DEBT_REPORT.md', 'utf8');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 技术债务告警：发现高风险模块',
+              body: `## 自动扫描发现高风险模块\n\n${report}\n\n---\n\n*此 Issue 由技术债务扫描器自动创建*`,
+              labels: ['tech-debt', 'P0', 'urgent']
+            });
+
+      - name: 提交报告到仓库
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TECHNICAL_DEBT_REPORT.md || true
+          git commit -m "chore: 更新技术债务扫描报告 [skip ci]" || true
+          git push || true
