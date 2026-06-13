@@ -50,10 +50,10 @@ node tech-debt-scanner-standalone.mjs .
 node tech-debt-scanner-standalone.mjs /path/to/your/project
 ```
 
-### 示例：扫描 TokenTreasure 项目
+### 示例：扫描 Test 项目
 
 ```bash
-node tech-debt-scanner-standalone.mjs ../TokenTreasure
+node tech-debt-scanner-standalone.mjs ../Test
 ```
 
 **输出示例**：
@@ -61,10 +61,10 @@ node tech-debt-scanner-standalone.mjs ../TokenTreasure
 ```
 📊 开始扫描项目熵值...
 
-项目根目录：/Users/admin/CodeBuddy/20260517172203/TokenTreasure
+项目根目录：/Users/admin/Test
 
 📂 项目类型：wechat-miniprogram
-📂 模块路径：/Users/admin/CodeBuddy/20260517172203/TokenTreasure/miniprogram
+📂 模块路径：/Users/admin/Test/miniprogram
 
 一、熵值汇总表
 
@@ -75,7 +75,7 @@ node tech-debt-scanner-standalone.mjs ../TokenTreasure
 | packages | 9 | 0 | 0 | 910 | 1.8 | 0% | 0% | 6.6 | 🟠 | P1 |
 | mock | 2 | 0 | 0 | 1194 | 1.4 | 0% | 0% | 6.5 | 🟠 | P1 |
 | infra | 10 | 0 | 1 | 1577 | 2.6 | 0% | 100% | 4.9 | 🟡 | P2 |
-| tokentreasure-frontend | 10 | 0 | 2 | 1507 | 2.5 | 0% | 100% | 4.8 | 🟡 | P2 |
+| test-frontend | 10 | 0 | 2 | 1507 | 2.5 | 0% | 100% | 4.8 | 🟡 | P2 |
 | STRATEGY | 0 | 0 | 1 | 0 | 0 | 0% | 100% | 4.1 | 🟡 | P2 |
 | docs | 0 | 0 | 47 | 0 | 0 | 0% | 100% | 4.1 | 🟡 | P2 |
 
@@ -93,7 +93,7 @@ node tech-debt-scanner-standalone.mjs ../TokenTreasure
 2. 规划处理 3 个风险模块（P1/P2 优先级）
 3. 为 7 个模块添加单元测试
 
-✅ 报告已生成：/Users/admin/CodeBuddy/20260517172203/TokenTreasure/TECHNICAL_DEBT_REPORT.md
+✅ 报告已生成：/Users/admin/Test/TECHNICAL_DEBT_REPORT.md
 ```
 
 ---
@@ -302,8 +302,9 @@ MIT License
 ## 📮 联系方式
 
 - 作者：Celestial Team
-- 项目主页：https://github.com/your-username/tech-debt-scanner
-- 问题反馈：https://github.com/your-username/tech-debt-scanner/issues
+- 项目主页：https://github.com/gitzack-coder/tech-debt-scanner
+- 问题反馈：https://github.com/gitzack-coder/tech-debt-scanner/issues
+- 联系邮箱：920097069@qq.com
 
 ---
 
