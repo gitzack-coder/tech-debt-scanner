@@ -2,6 +2,10 @@
 
 > 独立版技术债务扫描器，无外部依赖，支持任意项目类型
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub release](https://img.shields.io/github/release/gitzack-coder/tech-debt-scanner.svg)](https://github.com/gitzack-coder/tech-debt-scanner/releases)
+[![GitHub stars](https://img.shields.io/github/stars/gitzack-coder/tech-debt-scanner.svg)](https://github.com/gitzack-coder/tech-debt-scanner/stargazers)
+
 ---
 
 ## ✨ 特性
@@ -21,7 +25,7 @@
 
 ```bash
 # 下载独立版扫描器
-curl -O https://raw.githubusercontent.com/your-username/tech-debt-scanner/main/tech-debt-scanner-standalone.mjs
+curl -O https://raw.githubusercontent.com/gitzack-coder/tech-debt-scanner/main/tech-debt-scanner-standalone.mjs
 
 # 赋予执行权限
 chmod +x tech-debt-scanner-standalone.mjs
