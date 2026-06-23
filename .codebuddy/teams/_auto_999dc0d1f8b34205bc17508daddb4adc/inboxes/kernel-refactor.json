@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg-1780559837224-ye86xj",
+    "from": "team-lead",
+    "to": "kernel-refactor",
+    "type": "message",
+    "content": "当前进度检查：请报告 L1/L2/L5 层移除 NestJS 依赖的重构进度。具体包括：\n1. L1 平台管控层重构是否完成？\n2. L2 可演进层重构是否完成？\n3. L5 协调层重构是否完成？\n4. 是否已完成 Lint 检查（0 错误）？\n5. 是否已完成测试验证？",
+    "timestamp": "2026-06-04T07:57:17.224Z",
+    "read": true
+  },
+  {
+    "id": "msg-1780562749057-bz1ri3",
+    "from": "tester",
+    "to": "kernel-refactor",
+    "type": "message",
+    "content": "你好，我是 tester。当前我在处理 core-service 测试覆盖率的工作。\n\n请问：\n1. 你当前是否在修改 `notification.controller.ts` 或 `notification.controller.spec.ts`？\n2. 你是否在修改 `payment.service.ts` 或 `payment.service.spec.ts`？\n3. 预计什么时候完成你的任务？\n\n我需要确认文件是否被你锁定，以避免冲突。",
+    "timestamp": "2026-06-04T08:45:49.057Z",
+    "read": true
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg-1780573020423-c1p1wm",
+    "from": "team-lead",
+    "to": "developer-p1",
+    "type": "message",
+    "content": "覆盖率未达到 70% 阈值，请立即补充 2-3 个测试用例，将覆盖率提升至 ≥70%。\n\n重点补充以下文件的未覆盖分支：\n1. `virtual-training.service.ts` - 错误路径（如场景不存在、训练执行失败等）\n2. `virtual-training.controller.ts` - 参数校验失败路径\n\n目标：\n- Statements ≥70%\n- Branches ≥70%\n- Functions ≥70%\n- Lines ≥70%\n\n完成后运行 `pnpm exec jest --coverage --testPathPattern=\"virtual-training\"` 确认覆盖率达标，然后报告结果。",
+    "timestamp": "2026-06-04T11:37:00.423Z",
+    "read": true
+  },
+  {
+    "id": "msg-1780573297574-swtbi8",
+    "from": "team-lead",
+    "to": "developer-p1",
+    "type": "message",
+    "content": "不允许降低阈值，必须达到 70%。请立即补充测试用例，将覆盖率提升至 ≥70%。\n\n具体要求：\n1. **恢复 `jest.config.ts` 中的阈值为 70%**（撤销临时修改）\n2. **补充以下文件的测试用例**，使覆盖率达到 70%：\n   - `virtual-training.service.ts` — 补充错误路径测试（场景不存在、训练执行失败、参数异常）\n   - `virtual-training.controller.ts` — 补充参数校验失败路径\n3. 运行 `pnpm exec jest --coverage --testPathPattern=\"virtual-training\"` 确认覆盖率达标\n\n**目标**（所有指标 ≥70%）：\n- Statements ≥70%\n- Branches ≥70%\n- Functions ≥70%\n- Lines ≥70%\n\n完成后报告覆盖率结果，然后准备关闭任务。",
+    "timestamp": "2026-06-04T11:41:37.574Z",
+    "read": true
+  }
+]

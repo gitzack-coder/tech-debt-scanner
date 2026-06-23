@@ -1,0 +1,28 @@
+{
+  "name": "_auto_fd2e662c1255447cb1b7f2ae65b28e71",
+  "leadAgentId": "fd2e662c1255447cb1b7f2ae65b28e71",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-05-19T05:48:15.208Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": true
+  },
+  "members": [
+    {
+      "memberId": "team-lead@_auto_fd2e662c1255447cb1b7f2ae65b28e71",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "code-review@_auto_fd2e662c1255447cb1b7f2ae65b28e71",
+      "name": "code-review",
+      "role": "代码审查与漏洞扫描"
+    },
+    {
+      "memberId": "devops@_auto_fd2e662c1255447cb1b7f2ae65b28e71",
+      "name": "devops",
+      "role": "修复npm依赖漏洞"
+    }
+  ],
+  "isAutoTeam": true
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "msg-1780532321066-22bozm",
+    "from": "team-lead",
+    "to": "dev-agent",
+    "type": "message",
+    "content": "请先输出你的评估计划：1) 各模块（L0-L6）的完成度评估 2) 发现的TODO/HACK/FIXME列表 3) 你打算按什么顺序完成功能开发",
+    "timestamp": "2026-06-04T00:18:41.066Z",
+    "read": true
+  },
+  {
+    "id": "msg-1780532342564-98ky6o",
+    "from": "team-lead",
+    "to": "dev-agent",
+    "type": "message",
+    "content": "修正路径！实际目录结构是：\n- L0: `src/agent-kernel/L0-constitution/`\n- L1: `src/agent-kernel/L1-governance/`\n- L2: `src/agent-kernel/L2-evolvable/`  （不是L2-evolution）\n- L3: `src/agent-kernel/L3-learning/`\n- L4: `src/agent-kernel/L4-planning/`   （不是src/modules/planning/）\n- L5: `src/agent-kernel/L5-application/` （不是src/modules/kanban/）\n- L6: `src/agent-kernel/L6-execution/`  （不是src/modules/execution/）\n\n请使用正确路径工作。先 `ls` 确认各目录内容，再开始评估。",
+    "timestamp": "2026-06-04T00:19:02.564Z",
+    "read": true
+  }
+]

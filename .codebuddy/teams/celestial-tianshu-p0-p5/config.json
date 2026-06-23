@@ -1,0 +1,23 @@
+{
+  "name": "celestial-tianshu-p0-p5",
+  "leadAgentId": "999dc0d1f8b34205bc17508daddb4adc",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-05-31T16:06:47.221Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": false
+  },
+  "members": [
+    {
+      "memberId": "team-lead@celestial-tianshu-p0-p5",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "agent-p0-p1-backend@celestial-tianshu-p0-p5",
+      "name": "agent-p0-p1-backend",
+      "role": "后端P0-P1补全"
+    }
+  ],
+  "isAutoTeam": false
+}

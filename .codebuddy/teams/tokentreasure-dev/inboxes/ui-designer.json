@@ -1,0 +1,38 @@
+[
+  {
+    "id": "msg-1779109402222-xsdn3l",
+    "from": "team-lead",
+    "to": "ui-designer",
+    "type": "message",
+    "content": "frontend-dev 已完成 UI 规范落地，需要 TabBar 图标 PNG 资源。\n\n请创建以下图标（81x81px PNG）：\n- 首页：未选中、选中 2个\n- 寻宝：未选中、选中 2个\n- 钱包：未选中、选中 2个\n- 我的：未选中、选中 2个\n\n颜色规范在 `tokentreasure-frontend/static/tabbar/README.md`\n\n完成后汇报。",
+    "timestamp": "2026-05-18T13:03:22.222Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109410665-j15r5x",
+    "from": "frontend-dev",
+    "to": "ui-designer",
+    "type": "message",
+    "content": "你好！根据 UI 设计规范，我需要 TabBar 图标的 PNG 资源：\n\n**图标需求**：\n- 尺寸：81x81px（PNG格式）\n- 数量：4个主图标 × 2种状态 = 8张\n\n| 图标 | 常态（灰色） | 选中（强调色） |\n|------|-------------|---------------|\n| 首页/首页 | home_normal.png | home_active.png |\n| 寻宝/探索 | hunt_normal.png | hunt_active.png |\n| 钱包 | wallet_normal.png | wallet_active.png |\n| 我的 | profile_normal.png | profile_active.png |\n\n**配色**：\n- 常态：#6B7280（灰色）\n- 选中：#FFD700（金色，强调色）\n\n**存放位置**：\n- C端：`tokentreasure-frontend/static/tabbar/`\n- B端：`apps/uni-app-b/static/tabbar/`\n\n请确认是否可以提供这些资源？或者有设计草稿可以参考？",
+    "timestamp": "2026-05-18T13:03:30.665Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109529744-xyrz4b",
+    "from": "frontend-dev",
+    "to": "ui-designer",
+    "type": "message",
+    "content": "C端 TabBar 图标已配置完成 ✅\n\n但是 B 端图标目录未创建。需要确认：\n- B 端 TabBar 使用的是 `dashboard/treasure/scan/settings` 图标\n- 而非 C 端的 `home/hunt/wallet/profile`\n\n**B端需要的图标**：\n| 图标 | 常态 | 选中 |\n|------|------|------|\n| 数据/看板 | dashboard_normal.png | dashboard_active.png |\n| 宝藏管理 | treasure_normal.png | treasure_active.png |\n| 核销/扫码 | scan_normal.png | scan_active.png |\n| 设置/我的 | settings_normal.png | settings_active.png |\n\n请确认是否需要单独生成 B 端图标？",
+    "timestamp": "2026-05-18T13:05:29.744Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109543789-nho5f9",
+    "from": "team-lead",
+    "to": "ui-designer",
+    "type": "message",
+    "content": "B端 TabBar 图标需要单独制作：\n\n**B端图标清单**（81x81px PNG）：\n- 数据看板（dashboard_normal/active）\n- 宝藏管理（treasure_normal/active）\n- 扫码核销（scan_normal/active）\n- 设置（settings_normal/active）\n\n存放位置：`apps/uni-app-b/static/tabbar/`\n\n配色：C端保持一致，灰色常态 + 金色选中。\n\n完成后通知 frontend-dev。",
+    "timestamp": "2026-05-18T13:05:43.789Z",
+    "read": true
+  }
+]

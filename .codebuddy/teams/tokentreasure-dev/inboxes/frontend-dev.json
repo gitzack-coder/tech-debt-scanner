@@ -1,0 +1,83 @@
+[
+  {
+    "id": "msg-1779108465198-0w1x85",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "欢迎加入 TokenTreasure 开发团队！\n\n当前项目状态：\n- C端/B端前端：基础结构完成，需 API 对接\n- MVP 后端：基础结构完成，需初始化运行\n- 部署配置：已完成 docker-compose.mvp.yml\n\n你的第一个任务：\n请先熟悉项目结构，检查 API 接口文档和前端页面的对接情况，列出需要对接的接口清单。\n\n项目路径：/Users/admin/CodeBuddy/20260517172203/TokenTreasure/",
+    "timestamp": "2026-05-18T12:47:45.198Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108494327-gjp041",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "请执行以下任务：\n\n**任务：API 接口对接检查**\n\n1. 检查 C端 `/src/api/` 目录的接口定义\n2. 检查 B端 `/src/api/` 目录的接口定义\n3. 对比 MVP 后端 `/apps/mvp-server/src/modules/` 的接口\n\n输出格式：\n```\n## API 对接清单\n\n### C端待对接接口\n| 模块 | 接口路径 | 方法 | 状态 |\n|------|---------|------|------|\n| xxx | /api/xxx | GET | Mock/待对接 |\n\n### B端待对接接口\n...\n\n### 不匹配的接口\n- 接口1: 原因 + 建议\n```\n\n请尽快完成并回复。",
+    "timestamp": "2026-05-18T12:48:14.327Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108581171-l3alxu",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "很好，API对接问题已清晰。请执行以下修复：\n\n**优先级1 - 必须修复**\n1. 统一 API 前缀：修改 C端/B端前端 `config.ts` 的 `BASE_URL`，加上 `/api/v1` 前缀\n2. 认证模块路径修复：\n   - `/auth/wechat-login` → `/auth/wechat` (POST)\n   - `/auth/phone-login` → `/auth/phone` (POST)\n3. 用户模块路径修复：`/user/info` → `/user/profile`\n\n**优先级2 - 建议修复**\n4. 寻宝模块：`/treasure/nearby` → `/hunt/nearby`\n5. 权益模块：`/reward/*` → `/reward/my` (保持现状也可)\n\n**MVP阶段可跳过**\n- 热力图、结算记录、通知订阅（后端有但MVP不接）\n\n完成后请汇报修改了哪些文件。",
+    "timestamp": "2026-05-18T12:49:41.171Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108735964-6x08a4",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "团队SOP已更新，请遵循以下职责：\n\n## 前端开发工程师 (Frontend Developer)\n\n**核心职责**:\n1. C端/B端页面开发（uni-app + Vue 3）\n2. API接口对接（Mock → 真实接口）\n3. 组件封装与复用\n4. UI/UX优化\n\n**协作规范**:\n- 接口问题 → 联系后端开发\n- Bug问题 → 联系测试工程师\n- 部署需求 → 联系运维开发\n\n**代码规范**:\n- 遵循 ESLint\n- 提交信息: feat/fix/docs/style/refactor\n- 自测通过后再提测\n\n**当前任务**: API路径修复（进行中）\n\n请按SOP执行，有问题及时汇报。",
+    "timestamp": "2026-05-18T12:52:15.964Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108975890-ghccrk",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "请汇报前端开发状态：\n\n1. B端和C端小程序页面完成情况？\n2. API对接进展？\n3. 是否有阻塞问题？\n\n等待你的状态汇报。",
+    "timestamp": "2026-05-18T12:56:15.890Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109137220-tftsal",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "ui-designer 已完成设计规范文档 `docs/UI_DESIGN_SPEC.md`。\n\n请根据规范进行以下 UI 优化：\n\n**P0 紧急（阻塞体验）**\n1. 统一 C端/B端 主题颜色变量（按规范中的色彩系统）\n2. 替换硬编码颜色（#ffffff → CSS变量）\n3. 深色/浅色主题颜色定义统一\n\n**P1 重要**\n1. 寻宝页面 UI 优化\n2. 权益兑换页面 UI 优化\n3. TabBar 图标更新（按规范 PNG 81x81）\n\n**待创建资源**\n- TabBar 图标：首页/寻宝/钱包/我的 各2个状态\n\n完成后汇报。",
+    "timestamp": "2026-05-18T12:58:57.220Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109399204-vta72c",
+    "from": "team-lead",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "UI优化完成度很高 ✅\n\n已确认：\n- CSS变量统一\n- 硬编码颜色修复\n- 寻宝页面重建\n- TabBar规范文档\n\n**待办**：请向 ui-designer 请求 TabBar 图标 PNG 资源。\n\n完成后可待命，等待后续任务。",
+    "timestamp": "2026-05-18T13:03:19.204Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109495418-a35ve3",
+    "from": "ui-designer",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "TabBar 图标已完成！\n\n**生成文件**（C端 + B端均已部署）：\n```\ntokentreasure-frontend/static/tabbar/\n├── home_normal.png     (888KB, 81x81px)\n├── home_active.png     (1.0MB, 81x81px) \n├── hunt_normal.png     (921KB, 81x81px)\n├── hunt_active.png     (1.0MB, 81x81px)\n├── wallet_normal.png   (914KB, 81x81px)\n├── wallet_active.png   (976KB, 81x81px)\n├── profile_normal.png  (895KB, 81x81px)\n└── profile_active.png  (976KB, 81x81px)\n\napps/uni-app-b/static/tabbar/ (同步复制)\n```\n\n**配色**：常态灰色 #6B7280 / 选中金色 #FFD700\n\n**说明**：图标为 AI 生成的线性风格，可直接用于小程序 TabBar。",
+    "timestamp": "2026-05-18T13:04:55.418Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779109647723-mln58z",
+    "from": "ui-designer",
+    "to": "frontend-dev",
+    "type": "message",
+    "content": "B端 TabBar 图标已单独生成完成 ✅\n\n**B端图标位置**：`apps/uni-app-b/static/tabbar/`\n\n| 图标 | 常态 | 选中 |\n|------|------|------|\n| 数据看板 | dashboard_normal.png | dashboard_active.png |\n| 宝藏管理 | treasure_normal.png | treasure_active.png |\n| 扫码核销 | scan_normal.png | scan_active.png |\n| 设置 | settings_normal.png | settings_active.png |\n\n**规格**：81x81px，PNG透明背景\n**配色**：常态灰色 #6B7280 / 选中金色 #FFD700\n\nC端和B端图标目录均已就绪，可以开始配置 TabBar。",
+    "timestamp": "2026-05-18T13:07:27.723Z",
+    "read": true
+  }
+]

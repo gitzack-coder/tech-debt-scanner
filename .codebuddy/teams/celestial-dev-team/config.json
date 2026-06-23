@@ -1,0 +1,28 @@
+{
+  "name": "celestial-dev-team",
+  "leadAgentId": "999dc0d1f8b34205bc17508daddb4adc",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-06-04T00:18:16.047Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": false
+  },
+  "members": [
+    {
+      "memberId": "team-lead@celestial-dev-team",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "dev-agent@celestial-dev-team",
+      "name": "dev-agent",
+      "role": "功能开发Agent"
+    },
+    {
+      "memberId": "test-agent@celestial-dev-team",
+      "name": "test-agent",
+      "role": "测试覆盖Agent"
+    }
+  ],
+  "isAutoTeam": false
+}

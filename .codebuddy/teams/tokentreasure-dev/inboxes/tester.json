@@ -1,0 +1,47 @@
+[
+  {
+    "id": "msg-1779108473503-fo52ga",
+    "from": "team-lead",
+    "to": "tester",
+    "type": "message",
+    "content": "欢迎加入 TokenTreasure 开发团队！\n\n当前项目状态：\n- 项目处于开发阶段，功能模块基本完成\n- 等待后端初始化完成后再开始测试\n\n你的第一个任务：\n1. 熟悉项目功能模块（用户端、商户端、寻宝流程）\n2. 编写测试用例文档\n3. 列出关键测试点\n\n项目路径：/Users/admin/CodeBuddy/20260517172203/TokenTreasure/",
+    "timestamp": "2026-05-18T12:47:53.503Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108500873-i81t6a",
+    "from": "team-lead",
+    "to": "tester",
+    "type": "message",
+    "content": "请执行以下任务：\n\n**任务：测试用例文档**\n\n基于项目功能，编写测试用例文档到 `/docs/tests/` 目录：\n\n1. **C端测试用例** - login.md, hunt.md, ai.md, reward.md\n2. **B端测试用例** - merchant.md, treasure.md, redemption.md\n\n每个文件包含：\n```markdown\n## 功能模块\n\n### 测试点1\n- 前置条件：xxx\n- 测试步骤：xxx\n- 预期结果：xxx\n\n### 测试点2\n...\n```\n\n请尽快完成并回复。",
+    "timestamp": "2026-05-18T12:48:20.873Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108614076-prdpr2",
+    "from": "team-lead",
+    "to": "tester",
+    "type": "message",
+    "content": "测试用例文档完成得很好！接下来：\n\n1. **创建测试报告模板** - 保存到 `/docs/test-report-template.md`\n   - 包含：缺陷记录表、执行记录表、测试总结模板\n\n2. **准备冒烟测试清单** - MVP 验收优先测试项（10项以内）\n   - 用户登录\n   - 地图定位\n   - 寻宝流程\n   - 权益领取\n   - 核销功能\n\n完成后请汇报。",
+    "timestamp": "2026-05-18T12:50:14.076Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108746799-yj3ubh",
+    "from": "team-lead",
+    "to": "tester",
+    "type": "message",
+    "content": "团队SOP已更新，请遵循以下职责：\n\n## 测试工程师 (QA Engineer)\n\n**核心职责**:\n1. 测试用例编写与维护\n2. 功能测试与回归测试\n3. Bug跟踪与验证\n4. 测试报告输出\n\n**协作规范**:\n- Bug提交需包含: 步骤/结果/期望/截图\n- Bug指派给对应负责人\n- 测试完成需通知开发验证\n\n**Bug处理流程**:\n```\n发现Bug → 判定级别 → 创建Bug单 → 指派负责人\n    ↓\n负责人修复 → 提测 → 测试验证 → 关闭\n```\n\n**当前任务**: 测试报告模板（进行中）\n\n请按SOP执行，有问题及时汇报。",
+    "timestamp": "2026-05-18T12:52:26.799Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108804916-ws7mmc",
+    "from": "team-lead",
+    "to": "tester",
+    "type": "message",
+    "content": "好的，测试用例和SOP文档都已完成。\n\n**下一步任务**：准备测试数据和测试环境清单\n\n请完成以下工作：\n\n1. **测试数据准备清单** (`docs/test-data.md`)\n   - 测试账号列表（管理员/商户/普通用户）\n   - 测试坐标数据（模拟寻宝地点）\n   - 测试金额/算力余额\n   - 测试时间节点（签到、限时活动）\n\n2. **测试环境检查清单** (`docs/test-environment.md`)\n   - 后端API地址验证\n   - 数据库连接测试\n   - 地图服务Key验证\n   - 微信登录流程验证\n\n完成后在团队频道汇报，我会通知你何时启动冒烟测试。",
+    "timestamp": "2026-05-18T12:53:24.916Z",
+    "read": true
+  }
+]

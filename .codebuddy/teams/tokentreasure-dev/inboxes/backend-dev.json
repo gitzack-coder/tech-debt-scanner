@@ -1,0 +1,65 @@
+[
+  {
+    "id": "msg-1779108467859-xpuch8",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "欢迎加入 TokenTreasure 开发团队！\n\n当前项目状态：\n- MVP 后端位于 apps/mvp-server/\n- 技术栈：NestJS + Prisma + SQLite\n- 需安装依赖并初始化数据库\n\n你的第一个任务：\n1. 检查 apps/mvp-server/ 的完整性\n2. 编写数据库 seed 测试数据\n3. 确保本地可以运行 npm run start:dev\n\n项目路径：/Users/admin/CodeBuddy/20260517172203/TokenTreasure/",
+    "timestamp": "2026-05-18T12:47:47.859Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108497692-iiv8ce",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "请执行以下任务：\n\n**任务：后端完整性检查 + 数据库初始化**\n\n1. 检查 apps/mvp-server/ 的 package.json 依赖是否完整\n2. 检查所有 module 文件是否都创建了\n3. 创建 prisma/seed.ts 测试数据\n4. 验证能否正常运行 npm install\n\n输出：\n- 缺少的文件清单\n- seed.ts 代码\n- 运行结果\n\n请尽快完成并回复。",
+    "timestamp": "2026-05-18T12:48:17.692Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108654239-mbst2w",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "前端 API 路径已修复，确认后端路径是否对齐：\n\n**前端已统一的路径：**\n- `/api/v1/auth/wechat` (POST) - 微信登录\n- `/api/v1/auth/phone` (POST) - 手机登录\n- `/api/v1/user/profile` (GET/PUT) - 用户信息\n- `/api/v1/hunt/nearby` (GET) - 附近宝藏\n- `/api/v1/reward/my` (GET) - 我的权益\n\n**后端确认项：**\n1. 检查 apps/mvp-server 的路由是否匹配以上路径\n2. 如有差异，修改后端使其与前端一致\n3. 确认完成后，回复\"已同步\"",
+    "timestamp": "2026-05-18T12:50:54.239Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108740025-rfbfk8",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "团队SOP已更新，请遵循以下职责：\n\n## 后端开发工程师 (Backend Developer)\n\n**核心职责**:\n1. MVP后端开发（NestJS + Prisma + SQLite）\n2. API接口实现（与前端对接）\n3. 数据库设计与迁移\n4. 业务逻辑实现\n\n**协作规范**:\n- 接口定义需提前与前端对齐\n- API变更需通知前端和测试\n- 部署环境需与运维配合\n\n**代码规范**:\n- Prisma Schema 变更需同步\n- 接口文档需同步更新\n- 自测通过后再提测\n\n**当前任务**: 后端初始化 + 接口路径同步确认\n\n请按SOP执行，有问题及时汇报。",
+    "timestamp": "2026-05-18T12:52:20.025Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108899304-2vziny",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "tester已完成测试数据和测试环境准备。\n\n请问你负责的后端任务状态如何？\n- MVP后端服务是否部署完成？\n- API接口是否就绪？\n- 有哪些需要测试的关键接口？\n\n请汇报当前状态，以便协调冒烟测试启动时间。",
+    "timestamp": "2026-05-18T12:54:59.304Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108941311-io8l3y",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "收到。使用 **Docker 方式**启动后端。\n\n请执行：\n1. 检查 `apps/mvp-server/Dockerfile` 是否存在\n2. 执行 `docker build` 构建镜像\n3. 使用 `docker-compose.mvp.yml` 启动服务\n4. 验证 API 接口响应\n\n完成后汇报 Docker 启动结果。",
+    "timestamp": "2026-05-18T12:55:41.311Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779108962967-poct0l",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "收到。后端代码层面已全部完成 ✅\n\n当前状态：\n- ✅ 代码完整性已确认\n- ✅ seed.ts 测试数据脚本已创建\n- ✅ API 路径已同步为 /api/v1/*\n- ✅ Dockerfile 和 docker-compose.yml 已就绪\n\n**下一步**：等待 devops 确认 CI/CD 配置和部署脚本，后在服务器环境验证。\n\n请继续待命。",
+    "timestamp": "2026-05-18T12:56:02.967Z",
+    "read": true
+  }
+]

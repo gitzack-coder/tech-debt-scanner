@@ -34,3 +34,4 @@ TokenTreasure/
 
 # CI/CD artifacts
 .github/artifacts/
+dump.rdb

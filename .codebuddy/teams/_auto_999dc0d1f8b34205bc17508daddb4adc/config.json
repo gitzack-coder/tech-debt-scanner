@@ -1,0 +1,43 @@
+{
+  "name": "_auto_999dc0d1f8b34205bc17508daddb4adc",
+  "leadAgentId": "999dc0d1f8b34205bc17508daddb4adc",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-06-04T05:15:20.701Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": true
+  },
+  "members": [
+    {
+      "memberId": "team-lead@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "kernel-refactor@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "kernel-refactor",
+      "role": "重构L1/L2/L5层移除NestJS依赖"
+    },
+    {
+      "memberId": "developer@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "developer",
+      "role": "完成P0模块：虚拟训练场注册+周期性任务体系+记忆体系"
+    },
+    {
+      "memberId": "tester@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "tester",
+      "role": "完成测试覆盖：为新增文件编写单元测试"
+    },
+    {
+      "memberId": "progress-reporter@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "progress-reporter",
+      "role": "探索天枢系统功能模块开发进度"
+    },
+    {
+      "memberId": "developer-p1@_auto_999dc0d1f8b34205bc17508daddb4adc",
+      "name": "developer-p1",
+      "role": "P1模块开发Agent"
+    }
+  ],
+  "isAutoTeam": true
+}

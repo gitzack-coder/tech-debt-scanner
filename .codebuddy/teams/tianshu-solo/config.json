@@ -1,0 +1,23 @@
+{
+  "name": "tianshu-solo",
+  "leadAgentId": "999dc0d1f8b34205bc17508daddb4adc",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-06-04T11:21:40.372Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": false
+  },
+  "members": [
+    {
+      "memberId": "team-lead@tianshu-solo",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "developer-p1@tianshu-solo",
+      "name": "developer-p1",
+      "role": "P0：创建虚拟训练场模块"
+    }
+  ],
+  "isAutoTeam": false
+}

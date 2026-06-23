@@ -1,0 +1,68 @@
+{
+  "name": "tokentreasure-dev",
+  "leadAgentId": "fd2e662c1255447cb1b7f2ae65b28e71",
+  "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+  "createdAt": "2026-05-18T12:47:07.601Z",
+  "options": {
+    "workspacePath": "/Users/admin/CodeBuddy/20260517172203",
+    "isAutoTeam": false
+  },
+  "members": [
+    {
+      "memberId": "team-lead@tokentreasure-dev",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    },
+    {
+      "memberId": "frontend-dev@tokentreasure-dev",
+      "name": "frontend-dev",
+      "role": "前端开发工程师"
+    },
+    {
+      "memberId": "backend-dev@tokentreasure-dev",
+      "name": "backend-dev",
+      "role": "后端开发工程师"
+    },
+    {
+      "memberId": "devops@tokentreasure-dev",
+      "name": "devops",
+      "role": "运维开发工程师"
+    },
+    {
+      "memberId": "tester@tokentreasure-dev",
+      "name": "tester",
+      "role": "测试工程师"
+    },
+    {
+      "memberId": "ui-designer@tokentreasure-dev",
+      "name": "ui-designer",
+      "role": "UI设计专家Agent"
+    },
+    {
+      "memberId": "product-manager@tokentreasure-dev",
+      "name": "product-manager",
+      "role": "产品经理Agent"
+    },
+    {
+      "memberId": "data-analyst@tokentreasure-dev",
+      "name": "data-analyst",
+      "role": "数据分析师Agent"
+    },
+    {
+      "memberId": "operation@tokentreasure-dev",
+      "name": "operation",
+      "role": "运营专家Agent"
+    },
+    {
+      "memberId": "strategy@tokentreasure-dev",
+      "name": "strategy",
+      "role": "战略规划Agent"
+    },
+    {
+      "memberId": "customer-service@tokentreasure-dev",
+      "name": "customer-service",
+      "role": "客服专家Agent"
+    }
+  ],
+  "isAutoTeam": false
+}

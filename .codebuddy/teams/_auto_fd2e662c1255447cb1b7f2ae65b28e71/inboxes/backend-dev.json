@@ -1,0 +1,38 @@
+[
+  {
+    "id": "msg-1779170172253-igmyc1",
+    "from": "code-review",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "## 代码审查结果 - backend-dev 修复验证\n\n### ✅ 已正确修复的问题\n\n| 问题 | 状态 |\n|------|------|\n| `.env` 文件移除真实密钥 | ✅ 已修复 |\n| `docker-compose.mvp.yml` 使用环境变量 | ✅ 已修复 |\n| `JWT_SECRET` 必须从环境变量读取 | ✅ 已修复 |\n| 手机号登录验证码校验 | ✅ 已修复 |\n\n---\n\n### ⚠️ 新发现的安全问题\n\n#### P1 - 验证码发送无速率限制（高危）\n\n**文件**: `auth.controller.ts:16-20`\n\n```typescript\n@Post('phone/send-code')\nasync sendLoginCode(@Body() body: { phone: string }) {\n  return this.authService.sendLoginCode(body.phone);\n}\n```\n\n**问题**：\n- 验证码发送接口**没有任何限流措施**\n- 攻击者可对同一手机号无限次请求验证码\n- 可能导致短信轰炸攻击\n\n**建议**：添加 `@Throttle` 装饰器\n```typescript\n@Throttle({ default: { limit: 3, ttl: 60000 } }) // 每分钟最多3次\n@Post('phone/send-code')\n```\n\n---\n\n#### P1 - 手机号格式未校验（中-高危）\n\n**文件**: `auth.service.ts:19`, `auth.controller.ts:18`\n\n**问题**：\n- `phone` 参数未校验格式\n- 攻击者可传入任意字符串\n\n**建议**：添加手机号格式校验 DTO\n```typescript\n// 使用 class-validator\n@IsPhoneNumber('CN')\nphone: string;\n```\n\n---\n\n#### P2 - 内存存储无法用于多实例部署（中危）\n\n**文件**: `auth.service.ts:72-81`\n\n**问题**：\n- 验证码存储在 `(global as any).smsCodes` Map 中\n- 多实例部署时验证码无法共享\n- MVP 单实例可接受，生产环境需使用 Redis\n\n---\n\n#### P3 - 前端仍存在硬编码 AppID（低危）\n\n**文件**: \n- `tokentreasure-frontend/src/config/index.ts:32`\n- `apps/uni-app-b/src/config/index.ts:10`\n\n```typescript\nappId: process.env.WECHAT_APP_ID || 'wx6fce4a4a4ad5e601',\n```\n\n**说明**：虽不如 AppSecret 严重，但建议通过平台适配层获取\n\n---\n\n### 总体评价\n\n| 维度 | 修复前 | 修复后 |\n|------|--------|--------|\n| 密钥管理 | ❌ 硬编码 | ✅ 环境变量 |\n| 验证码逻辑 | ❌ 未实现 | ⚠️ 基本实现 |\n| 认证安全 | ❌ 可绕过 | ⚠️ 可防绕过 |\n\n**综合评分**: 7.5/10（修复前 4.8/10）\n\n---\n\n### 建议行动\n\n1. **立即**（P1）：为 `/auth/phone/send-code` 添加限流装饰器\n2. **本周**（P2）：添加手机号格式校验\n3. **下版本**（P3）：移除前端硬编码 AppID，使用平台配置获取\n\n是否需要我更新 `CODE_REVIEW_REPORT.md` 报告？",
+    "timestamp": "2026-05-19T05:56:12.253Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779171188446-dp6mq8",
+    "from": "team-lead",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "## P1 紧急修复任务\n\n### 任务1：权益核销权限校验\n**文件**：`apps/mvp-server/src/modules/reward/reward.service.ts` 第26行\n\n**问题**：当前 `if (reward.merchantId !== null)` 逻辑错误，任何商家都可核销任意用户的权益\n\n**修复**：\n```typescript\nif (reward.merchantId !== currentMerchant.id) {\n  throw new ForbiddenException('无权核销此权益');\n}\n```\n\n### 任务2：AI深度思考费用配置\n**文件**：`apps/mvp-server/src/modules/ai/ai.service.ts` 第38行\n\n**问题**：`AI_CHAT_COST` 复用了普通聊天费用\n\n**修复**：添加 `AI_DEEP_THINK_COST` 独立配置项\n\n请修复以上两个P1问题，完成后汇报。",
+    "timestamp": "2026-05-19T06:13:08.446Z",
+    "read": true
+  },
+  {
+    "id": "msg-1779171872684-394hzm",
+    "from": "code-review",
+    "to": "backend-dev",
+    "type": "message",
+    "content": "需要修复以下 P1 安全漏洞：\n\n1. **权益核销权限校验缺陷** - `apps/mvp-server/src/modules/reward/reward.service.ts:26`\n   ```typescript\n   // 当前错误代码\n   if (reward.merchantId !== null) throw new BadRequestException('权益已被核销');\n   \n   // 应改为（参考hunt.service.ts的权限校验逻辑）\n   if (reward.status !== 1) throw new BadRequestException('权益已使用或已过期');\n   const merchant = await this.prisma.merchant.findUnique({ where: { userId } });\n   if (!merchant) throw new NotFoundException('商户信息不存在');\n   if (reward.merchantId !== null && reward.merchantId !== merchant.id) {\n     throw new BadRequestException('无权核销此权益');\n   }\n   ```\n\n2. **AI 深度思考费用配置错误** - `apps/mvp-server/src/modules/ai/ai.service.ts:38`\n   ```typescript\n   // 当前代码（错误）\n   const deepThinkCost = parseInt(this.config.get('AI_CHAT_COST', '5'));\n   \n   // 应改为（新增配置项）\n   const deepThinkCost = parseInt(this.config.get('AI_DEEP_THINK_COST', '5'));\n   ```\n\n3. **.env.example 文件缺失** - 需创建环境变量模板\n\n请修复后通知我进行复审。",
+    "timestamp": "2026-05-19T06:24:32.684Z",
+    "read": true
+  },
+  {
+    "id": "shutdown-1779173637195",
+    "from": "code-review",
+    "to": "backend-dev",
+    "type": "shutdown_request",
+    "content": "{\"type\":\"shutdown_request\",\"request_id\":\"shutdown-1779173637195\",\"reason\":\"代码审查任务已完成，所有P1问题已修复。请关闭。\",\"from\":\"code-review\",\"timestamp\":\"2026-05-19T06:53:57.195Z\"}",
+    "timestamp": "2026-05-19T06:53:57.195Z",
+    "read": true
+  }
+]
